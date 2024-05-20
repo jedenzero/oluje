@@ -21,7 +21,7 @@ function add(item){
   newItem.style.left=`${Math.floor(Math.random()*(merge_place.offsetWidth-200)+50)}px`;
   newItem.style.top=`${Math.floor(Math.random()*(merge_place.offsetHeight-100)+50)}px`;
   newItem.textContent=item;
-  merg_place.appendChild(newItem);
+  merge_place.appendChild(newItem);
   newItem.addEventListener('mousedown',dragStart);
 }
 function dragStart(e){
@@ -51,7 +51,7 @@ function dragEnd(e){
         newItem.style.left=`${(removePx(item.style.left)+removePx(dragged.style.left))/2}px`;
         newItem.style.top=`${(removePx(item.style.top)+removePx(dragged.style.top))/2}px`;
         newItem.textContent=recipe[0];
-        merging_place.appendChild(newItem);
+        merge_place.appendChild(newItem);
         newItem.addEventListener('mousedown',dragStart);
       }
     }
