@@ -1,0 +1,23 @@
+body{
+  user-select:none;
+  padding:0;
+}
+merge-place{
+  width:80vw;
+  margin:0 auto;
+}
+recipe-list{
+  
+}
+item,item-draggable{
+  display:inline-block;
+  height:20px;
+  border-radius:10px;
+  padding-left:10px;
+  padding-right:10px;
+  margin-right:3px;
+  box-shadow: 0 0 0 1px #C8C8C8 inset;
+}
+item-draggable{
+  position:absolute;
+}
