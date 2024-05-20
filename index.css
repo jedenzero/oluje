@@ -2,15 +2,15 @@ body{
   user-select:none;
   padding:0;
 }
-merge-place{
+#merge-place{
   width:80vw;
   height:400px;
   margin:0 auto;
 }
-recipe-list{
+#recipe-list{
   
 }
-item,item-draggable{
+.item,.item-draggable{
   display:inline-block;
   height:20px;
   border-radius:10px;
@@ -19,6 +19,6 @@ item,item-draggable{
   margin-right:3px;
   box-shadow: 0 0 0 1px #C8C8C8 inset;
 }
-item-draggable{
+.item-draggable{
   position:absolute;
 }
