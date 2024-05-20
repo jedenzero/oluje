@@ -1,5 +1,4 @@
 body{
-  user-select:none;
   padding:0;
 }
 #merge-place{
@@ -12,13 +11,18 @@ body{
 }
 .item,.item-draggable{
   display:inline-block;
-  height:20px;
-  border-radius:10px;
-  padding-left:10px;
-  padding-right:10px;
+  height:30px;
+  border-radius:15px;
+  padding-left:15px;
+  padding-right:15px;
   margin-right:3px;
   box-shadow: 0 0 0 1px #C8C8C8 inset;
 }
 .item-draggable{
   position:absolute;
+}
+@media(min-width:800px){
+  body{
+    user-select:none;
+  }
 }
