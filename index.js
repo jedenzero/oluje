@@ -21,7 +21,7 @@ function add(item){
   newItem.style.left=`${Math.floor(Math.random()*(merge_place.offsetWidth-200)+50)}px`;
   newItem.style.top=`${Math.floor(Math.random()*(merge_place.offsetHeight-100)+50)}px`;
   newItem.textContent=item;
-  merging_place.appendChild(newItem);
+  merg_place.appendChild(newItem);
   newItem.addEventListener('mousedown',dragStart);
 }
 function dragStart(e){
@@ -62,7 +62,7 @@ function dragEnd(e){
 }
 function remove(item){
   item.removeEventListener('mousedown',dragStart);
-  merging_place.removeChild(item);
+  merge_place.removeChild(item);
 }
 function removePx(s){
   return Number(s.split('px')[0])
