@@ -2,8 +2,8 @@
 @import url('https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css');
 
 body{
-  font-family:'Tossface', 'IBM Plex Sans KR'
   user-select:none;
+  font-family:'Tossface', 'IBM Plex Sans KR'
   padding:0;
 }
 #merge-place{
