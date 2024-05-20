@@ -4,6 +4,7 @@ body{
 }
 merge-place{
   width:80vw;
+  height:400px;
   margin:0 auto;
 }
 recipe-list{
