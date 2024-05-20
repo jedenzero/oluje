@@ -18,7 +18,6 @@ function find(item){
 function add(item){
   const newItem=document.createElement('div');
   newItem.classList.add('item-draggable');
-  newItem.style.position='absolute';
   newItem.style.left=`${Math.floor(Math.random()*(merging_place.offsetWidth-200)+50)}px`;
   newItem.style.top=`${Math.floor(Math.random()*(merging_place.offsetHeight-100)+50)}px`;
   newItem.textContent=item;
@@ -40,6 +39,23 @@ function dragProgress(e){
 }
 function dragEnd(e){
   e.preventDefault();
+  document.querySelectorAll('.item-draggable').forEach(item=>{
+    if(item!=dragged&&-20<=(removePx(item.style.left)-removePx(dragged.style.left))<=20&&-20<=(removePx(item.style.top)-removePx(dragged.style.top))<=20){
+      const recipe=recipes.find(recipe=>recipe[1]===`${item.textContent}+${dragged.textContent}`||recipe[1]===`${dragged.textContent}+${item.textContent}`);
+      if(recipe){
+        remove(item);
+        remove(dragged);
+        find(recipe[0]);
+        const newItem=document.createElement('div');
+        newItem.classList.add('item-draggable');
+        newItem.style.left=`${(removePx(item.style.left)+removePx(dragged.style.left))/2}px`;
+        newItem.style.top=`${(removePx(item.style.top)+removePx(dragged.style.top))/2}px`;
+        newItem.textContent=recipe[0];
+        merging_place.appendChild(newItem);
+        newItem.addEventListener('mousedown',dragStart);
+      }
+    }
+  });
   dragged=null;
   document.removeEventListener('mousemove',dragProgress);
   document.removeEventListener('mouseup',dragEnd);
@@ -47,4 +63,7 @@ function dragEnd(e){
 function remove(item){
   item.removeEventListener('mousedown',dragStart);
   merging_place.removeChild(item);
+}
+function removePx(s){
+  return Number(s.split('px')[0])
 }
