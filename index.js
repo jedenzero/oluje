@@ -1,7 +1,7 @@
 var recipes=[];
 var found=[];
 var dragged=null;
-const merging_place=document.getElementById('merging-place');
+const merge_place=document.getElementById('merge-place');
 const recipe_list=document.getElementById('recipe-list');
 fetch('https://sheets.googleapis.com/v4/spreadsheets/15wXy8AEYJt8uiH_DKYQuc3e6_oetyzpwTRDplaprfnY/values/recipes!A:B?key=AIzaSyATLeHQh6kM0LWRJjLg8CmzoSdnntFrmFk')
 .then(response=>response.json())
@@ -18,8 +18,8 @@ function find(item){
 function add(item){
   const newItem=document.createElement('div');
   newItem.classList.add('item-draggable');
-  newItem.style.left=`${Math.floor(Math.random()*(merging_place.offsetWidth-200)+50)}px`;
-  newItem.style.top=`${Math.floor(Math.random()*(merging_place.offsetHeight-100)+50)}px`;
+  newItem.style.left=`${Math.floor(Math.random()*(merge_place.offsetWidth-200)+50)}px`;
+  newItem.style.top=`${Math.floor(Math.random()*(merge_place.offsetHeight-100)+50)}px`;
   newItem.textContent=item;
   merging_place.appendChild(newItem);
   newItem.addEventListener('mousedown',dragStart);
