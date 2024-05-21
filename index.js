@@ -25,12 +25,15 @@ function add(item){
   newItem.textContent=item;
   merge_place.appendChild(newItem);
   newItem.addEventListener('mousedown',dragStart);
+  newItem.addEventListener('touchstart',dragStart);
 }
 function dragStart(e){
   e.preventDefault();
   dragged=e.target;
   document.addEventListener('mousemove',dragProgress);
   document.addEventListener('mouseup',dragEnd);
+  document.addEventListener('touchmove',dragProgress);
+  document.addEventListener('touchend',dragEnd);
 }
 function dragProgress(e){
   e.preventDefault();
@@ -62,9 +65,12 @@ function dragEnd(e){
   dragged=null;
   document.removeEventListener('mousemove',dragProgress);
   document.removeEventListener('mouseup',dragEnd);
+  document.removeEventListener('touchmove',dragProgress);
+  document.removeEventListener('touchend',dragEnd);
 }
 function remove(item){
   item.removeEventListener('mousedown',dragStart);
+  item.removeEventListener('touchstart',dragStart);
   merge_place.removeChild(item);
 }
 function removePx(s){
