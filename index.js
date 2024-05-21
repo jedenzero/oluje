@@ -41,8 +41,8 @@ function dragProgress(e){
 }
 function dragEnd(e){
   e.preventDefault();
-  document.querySelectorAll('.item-draggable').forEach(item=>{
-    if(item!=dragged&&-20<=(removePx(item.style.left)-removePx(dragged.style.left))<=20&&-20<=(removePx(item.style.top)-removePx(dragged.style.top))<=20){
+  for(item of document.querySelectorAll('.item-draggable')){
+    if(item!=dragged&&Math.abs(removePx(item.style.left)-removePx(dragged.style.left))<=20&&Math.abs(removePx(item.style.top)-removePx(dragged.style.top))<=20){
       const recipe=recipes.find(recipe=>recipe[1]===`${item.textContent}+${dragged.textContent}`||recipe[1]===`${dragged.textContent}+${item.textContent}`);
       if(recipe){
         remove(item);
@@ -55,6 +55,7 @@ function dragEnd(e){
         newItem.textContent=recipe[0];
         merge_place.appendChild(newItem);
         newItem.addEventListener('mousedown',dragStart);
+        break;
       }
     }
   });
