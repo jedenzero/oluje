@@ -4,6 +4,7 @@
 body{
   user-select:none;
   font-family:'Tossface', 'IBM Plex Sans KR';
+  position:fixed;
   width:100vw;
   height:100vh;
   margin:0;
