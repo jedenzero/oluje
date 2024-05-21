@@ -4,15 +4,22 @@
 body{
   user-select:none;
   font-family:'Tossface', 'IBM Plex Sans KR';
-  padding:0;
+  margin:0;
 }
 #merge-place{
   width:80vw;
-  height:400px;
+  height:60vh;
   margin:0 auto;
 }
 #recipe-list{
-  
+  width:100%;
+  height:40vh;
+  padding:15px;
+  border-top:2px solid #C8C8C8;
+  overflow-y:auto;
+}
+#recipe-list::-webkit-scrollbar{
+  display:none;
 }
 .item,.item-draggable{
   display:inline-block;
@@ -21,10 +28,13 @@ body{
   padding-left:15px;
   padding-right:15px;
   margin-right:3px;
-  margin-bottom:3px;
+  margin-bottom:6px;
   background-color:#FFF;
   box-shadow: 0 0 0 1px #C8C8C8 inset;
 }
 .item-draggable{
   position:absolute;
+}
+.item-draggable:active{
+  z-index:1;
 }
