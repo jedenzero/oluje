@@ -12,8 +12,10 @@ fetch('https://sheets.googleapis.com/v4/spreadsheets/15wXy8AEYJt8uiH_DKYQuc3e6_o
   }
 });
 function find(item){
-  found.push(item);
-  recipe_list.innerHTML+=`<div class="item" onclick="add('${item}');">${item}</div>`;
+  if(!found.includes(item)){
+    found.push(item);
+    recipe_list.innerHTML+=`<div class="item" onclick="add('${item}');">${item}</div>`;
+  }
 }
 function add(item){
   const newItem=document.createElement('div');
