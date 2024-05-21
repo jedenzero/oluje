@@ -58,7 +58,7 @@ function dragEnd(e){
         break;
       }
     }
-  });
+  };
   dragged=null;
   document.removeEventListener('mousemove',dragProgress);
   document.removeEventListener('mouseup',dragEnd);
