@@ -58,6 +58,7 @@ function dragEnd(e){
         newItem.textContent=recipe[0];
         merge_place.appendChild(newItem);
         newItem.addEventListener('mousedown',dragStart);
+        newItem.addEventListener('touchend',dragStart);
         break;
       }
     }
