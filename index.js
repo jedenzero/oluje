@@ -32,14 +32,14 @@ function dragStart(e){
   dragged=e.target;
   document.addEventListener('mousemove',dragProgress);
   document.addEventListener('mouseup',dragEnd);
-  document.addEventListener('touchmove',dragProgress);
-  document.addEventListener('touchend',dragEnd);
+  document.addEventListener('touchmove',dragProgress,{passive:false});
+  document.addEventListener('touchend',dragEnd,{passive:false});
 }
 function dragProgress(e){
   e.preventDefault();
   if(dragged){
-    dragged.style.left=e.clientX-dragged.clientWidth/2+'px';
-    dragged.style.top=e.clientY-dragged.clientHeight/2+'px';
+    dragged.style.left=(e.clientX||e.touches[0].clientX)-dragged.clientWidth/2+'px';
+    dragged.style.top=(e.clientY||e.touches[0].clientY)-dragged.clientHeight/2+'px';
   }
 }
 function dragEnd(e){
@@ -58,15 +58,15 @@ function dragEnd(e){
         newItem.textContent=recipe[0];
         merge_place.appendChild(newItem);
         newItem.addEventListener('mousedown',dragStart);
-        newItem.addEventListener('touchend',dragStart);
+        newItem.addEventListener('touchstart',dragStart);
         break;
       }
     }
   };
   dragged=null;
-  document.removeEventListener('mousemove',dragProgress);
+  document.removeEventListener('mousemove',dragProgress,{passive:false});
   document.removeEventListener('mouseup',dragEnd);
-  document.removeEventListener('touchmove',dragProgress);
+  document.removeEventListener('touchmove',dragProgress,{passive:false});
   document.removeEventListener('touchend',dragEnd);
 }
 function remove(item){
