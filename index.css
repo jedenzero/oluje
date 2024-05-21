@@ -4,6 +4,8 @@
 body{
   user-select:none;
   font-family:'Tossface', 'IBM Plex Sans KR';
+  width:100vw;
+  height:100vh;
   margin:0;
 }
 #merge-place{
