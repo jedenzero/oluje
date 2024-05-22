@@ -5,20 +5,20 @@ body{
   font-family:'Tossface', 'IBM Plex Sans KR';
   position:fixed;
   width:100vw;
-  height:100vh;
+  height:100dvh;
   margin:0;
   overflow:hidden;
   overscroll-behavior:none;
 }
 #merge-place{
-  width:80%;
-  height:60%;
+  width:80vw;
+  height:60dvw;
   margin:0 auto;
 }
 #recipe-list{
   box-sizing:border-box;
-  width:100%;
-  height:40%;
+  width:100vw;
+  height:40dvw;
   padding:15px;
   border-top:2px solid #C8C8C8;
   overflow-y:auto;
