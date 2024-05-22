@@ -7,7 +7,8 @@ body{
   width:100vw;
   height:100vh;
   margin:0;
-  overscroll-behavior:contain;
+  overflow:hidden;
+  overscroll-behavior:none;
 }
 #merge-place{
   width:80%;
