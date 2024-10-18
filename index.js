@@ -44,6 +44,9 @@ function dragProgress(e){
 }
 function dragEnd(e){
   e.preventDefault();
+  if(removePx(dragged.style.top)>=0.8*window.innerHeight){
+    remove(dragged);
+  }
   for(item of document.querySelectorAll('.item-draggable')){
     if(item!=dragged&&Math.abs(removePx(item.style.left)-removePx(dragged.style.left))<=20&&Math.abs(removePx(item.style.top)-removePx(dragged.style.top))<=20){
       const recipe=recipes.find(recipe=>recipe[1]===`${item.textContent}+${dragged.textContent}`||recipe[1]===`${dragged.textContent}+${item.textContent}`);
