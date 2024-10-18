@@ -44,7 +44,7 @@ function dragProgress(e){
 }
 function dragEnd(e){
   e.preventDefault();
-  if(removePx(dragged.style.top)>=0.8*window.innerHeight){
+  if(removePx(dragged.style.top)>=0.6*window.innerHeight){
     remove(dragged);
   }
   for(item of document.querySelectorAll('.item-draggable')){
